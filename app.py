@@ -35,7 +35,7 @@ def ask_gemini(user_text: str) -> str:
     """把使用者的訊息送給 Gemini，回傳生成的文字。"""
     try:
         response = gemini_client.models.generate_content(
-            model="gemini-2.0-flash",
+            model="gemini-2.5-flash",
             contents=user_text,
         )
         return response.text
@@ -89,4 +89,3 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
-    
