@@ -37,6 +37,9 @@ def ask_gemini(user_text: str) -> str:
         response = gemini_client.models.generate_content(
             model="gemini-2.5-flash",
             contents=user_text,
+            config={
+                "system_instruction": "你是一個親切的助理。請一律使用繁體中文（台灣用語習慣）回覆，不要使用簡體字。",
+            },
         )
         return response.text
     except Exception as e:
