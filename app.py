@@ -2,7 +2,10 @@ import os
 import threading
 import time
 import requests
-import psycopg2
+try:
+    import psycopg2cffi as psycopg2
+except ImportError:
+    import psycopg2
 from datetime import datetime
 from flask import Flask, request, abort
 from linebot.v3 import WebhookHandler
